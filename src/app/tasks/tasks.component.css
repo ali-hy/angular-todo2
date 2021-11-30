@@ -1,0 +1,113 @@
+.first{
+	border-top: none !important;
+}
+
+.tasks-display{
+	height: 65%;
+	z-index: 10;
+	position: absolute;
+	top:32%;
+	overflow-y: auto;
+}
+
+.tasks-display::-webkit-scrollbar{
+	width: 4px;
+	margin-left: -20px;
+}
+.tasks-display::-webkit-scrollbar-track{
+	background-color: #ddd;
+}
+.tasks-display::-webkit-scrollbar-thumb{
+	width: 3px;
+	background: #aaa;
+	border-radius: 3px;
+}
+.tasks-display::-webkit-scrollbar-thumb:hover{
+	background: #777;
+}
+
+ul{
+	list-style-type: none;
+	height: fit-content;
+}
+
+li{
+	padding: 10pt 0;
+	display:flex;
+	justify-content: space-between;
+}
+li div{
+	display: inline-block;
+	margin-left: 15px;
+	position: relative;
+}
+
+.tasks-display [type="checkbox"] {
+	position: absolute;
+	top: 3px;
+	left: 0;
+	opacity: 0.01;
+}
+
+/* Prepare the label */
+.tasks-display [type="checkbox"] + label {
+	position: relative; /* allows to position the custom boxes */
+	font-size: 10pt;
+	margin-right: 20pt ;
+	line-height: 1.7;
+	cursor: pointer; 
+}
+
+.tasks-display [type="checkbox"] + label:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0.9em;
+	height: 0.9em;
+	border: 2px solid #999;
+	border-radius: 3px;
+	background: #FFF;
+	transition: all .275s;
+}
+
+.tasks-display [type="checkbox"] + label:after{
+	content: '✓';
+	background: #fff;
+	font-weight: bold;
+	position: absolute;
+	top: 8px;
+	left: 3px;
+	font-size: 1em;
+	color: #80ce57;
+	line-height: 0;
+	transition: all .2s;
+}
+
+.tasks-display [type="checkbox"]:not(:checked) + label::after {
+	opacity: 0;
+	transform: scale(0);
+}
+
+/* Checked aspect */
+.tasks-display [type="checkbox"]:checked + label::after {
+	opacity: 1;
+	transform: scale(1);
+}
+h3{
+	font-size: 50pt;
+	text-align: center;
+	margin: 0;
+	position: absolute;
+	top: 48%; left: 50%; transform: translate(-50%, -50%);
+	color: #d0d0d0;
+}
+
+.delete-btn{
+	color: #999;
+	background: none;
+	border: none;
+}
+.delete-btn:hover{
+	color: #e33;
+}

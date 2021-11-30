@@ -1,0 +1,84 @@
+.task-adder{
+	position:absolute;
+	top: 19%;
+	height: 12%;
+	padding: 25pt;
+	z-index: 20;
+}
+
+.task-adder button{
+	border: none;
+	padding: 10px 15pt;
+	border-radius: 7px;
+}
+
+.task-adder button:disabled{
+	cursor: no-drop;
+}
+
+.task-adder input{
+	border: none;
+	border-bottom: 2px solid gray;
+	padding: 4px 10px;
+	width: 35%;
+	font-size: 13pt;
+}
+
+.add-btn{
+	background: #8ddf88;
+	font-weight: bold;
+	margin-right: 5%;
+	float: right;
+}
+.add-btn:hover{
+	background: #7ad578;
+}
+
+
+
+/* .categories-dropdown{
+	float: right;
+	margin-right: 5%;
+	width: 25%;
+	position: relative;
+	font-size: small;
+}
+.categories-dropdown ul{
+	display:none;
+	list-style-type: none;
+	width: 100%;
+	margin-top: -3px;
+	z-index: 200;
+	position:absolute;
+}
+.categories-dropdown li{
+	background-color: #eee;
+	box-shadow: 0 3px 3px #999;
+	text-align: center;
+	padding: 9px;
+	z-index: 200;
+}
+.categories-dropdown li:hover{
+	background: #aaa;
+}
+.category-btn{
+	width: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+.category-btn:hover{
+	background: #ccc;
+}
+.show{
+	display: block !important;
+}
+.last-category{
+	border-radius: 0 0 5px 5px;
+}
+.shadow{
+	box-shadow: 0 0 3px #999;
+	border-radius: 5px 5px 0 0 !important;
+}
+.category-btn:focus{
+	background: #bbb;
+} */

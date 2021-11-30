@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TasksService } from './tasks.service';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-todo2';
+  tasks$ = this.taskService.ftasks$;
+  constructor(private taskService: TasksService) {
+  }
+
 }

@@ -1,0 +1,12 @@
+  <h1 mat-dialog-title>Add Category</h1>
+
+  <mat-dialog-content>
+    <mat-form-field appearance="fill" >
+      <mat-label>Category Name</mat-label>
+      <input matInput [formControl]="catFormControl" placeholder="Enter Category" id="cat-input" [errorStateMatcher]="matcher" (keydown.enter)="clickAdd($event)">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit" (click)="submit()" id="add-category-btn">Add</button>
+    <button mat-button type="button" mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>

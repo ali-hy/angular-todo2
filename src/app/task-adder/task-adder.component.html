@@ -1,0 +1,5 @@
+<div class="box task-adder">
+	<input id="here-title" [(ngModel)]="newTitle" placeholder="Enter your next task"
+	(keydown.enter)="clickAdd($event)">
+	<button id="add-task-btn" class="add-btn" (click)="addTask()"  [disabled]="newTitle.trim()===''" >ADD</button>
+</div>

@@ -1,0 +1,12 @@
+<div class="filters">
+	<h3>Categories</h3>
+	<ul>
+		<li [ngClass]="{'selected-category': selectedCategory.id == - 1}"
+			(click)="selectCategory(-1)" id = "all-btn">All</li>
+		<li *ngFor="let category of categoriesList; index as i;" (click)="selectCategory(categoriesList[i].id)"
+		[ngClass]="{'selected-category': categoriesList[i].id == selectedCategory.id}">{{categoriesList[i].cat_name}}<button (click) = "promptRemoveCategory(categoriesList[i].id)">✖</button></li>
+	</ul>
+	<button class="add-category-btn" (click) = "openAddCategoryDialog()"><span (click) = "openAddCategoryDialog()">+</span></button>
+	<div class="showCompleted"><input id="showcompleted-cb" type="checkbox" (change) = "toggleShowCompleted()" [checked] = "showCompleted">
+		<label for="showcompleted-cb">Show Completed</label></div>
+</div>

@@ -1,0 +1,9 @@
+h2{
+    font-size: xx-large;
+    margin-top: 5%;
+    padding-top: 0;
+    text-align: center;
+    position: absolute;
+    left: 59.5%;
+	transform:translateX(-50%);
+}

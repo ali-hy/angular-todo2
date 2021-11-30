@@ -1,0 +1,13 @@
+<div class="box tasks-display">
+	<ng-container *ngIf="tasks">
+		<ul *ngIf="tasks.length > 0; else tasksempty">
+			<li *ngFor="let task of tasks; first as firstTask;" style="border-top: 2px solid #ded;" [ngClass]="{'first': firstTask}">
+				<span><div><input [id]="'task' + task.id" type="checkbox" [checked] = "task.completed" (change)="changeCompleted(task.id);">
+					<label [for]="'task' + task.id"></label></div>
+					{{task.title}}</span>
+					<button class = "delete-btn" (click) = "delete(task.id)">✘</button>
+			</li>
+		</ul>
+	</ng-container>
+	<ng-template #tasksempty><h3>Add a task</h3></ng-template>
+</div>
