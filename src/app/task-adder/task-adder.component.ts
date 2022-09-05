@@ -25,6 +25,6 @@ export class TaskAdderComponent implements OnInit {
   }
 
   clickAdd(event: Event){
-      document.getElementById("add-task-btn")?.click();
+    document.getElementById("add-task-btn")?.click();
   }
 }

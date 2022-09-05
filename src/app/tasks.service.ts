@@ -31,7 +31,7 @@ const tasksReducer = (todos: any, action: any) => {
       localStorage.setItem("Tasks", JSON.stringify(todos));
       return[...todos];
     case "filterCategory":
-      todos = todos.filter(todo => todo.category.id != action.payload);
+      todos = todos.filter(todo => todo.category !== undefined && todo.category.id != action.payload);
       localStorage.setItem("Tasks", JSON.stringify(todos));
       return[...todos];
     case "refresh":
@@ -62,8 +62,14 @@ export class TasksService {
     scan(tasksReducer),
   );
   ftasks$ = this.tasks$.pipe(
-    map((todos) => todos.filter((task:any) => (this.showCompleted || !task.completed) && 
-      (this.select_all || this.selectedCategory.id == task.category.id))),
+    map((todos) => todos.filter((task:any) =>{
+      console.log(task.category);
+      
+      return (this.showCompleted || !task.completed) && 
+      (this.select_all || task.category!==undefined && this.selectedCategory.id == 
+        task.category.id)})),
+    tap((v)=>{console.log(v);
+    })
   )
 
   remaining$ = this.tasks$.pipe(
@@ -94,6 +100,7 @@ export class TasksService {
   lastCategoryId:number = JSON.parse(localStorage.getItem("LastCategoryId")) != null ? JSON.parse(localStorage.getItem("LastCategoryId")) : Math.max(...this.categoriesList.map(i => i.id));
   selectedCategory = {id: -1} as category_type;
   get select_all() {return this.selectedCategory.id < 0;} 
+  
   getSelectedCategory(){
     return this.selectedCategory;
   }
@@ -102,7 +109,9 @@ export class TasksService {
     commands$.next({type: "toggle", payload: id});
   }
   addTask(task){
-    commands$.next({type: "add", payload: {...task,category:this.selectedCategory}})
+    console.log('selected Category:',  this.selectedCategory);
+    
+    commands$.next({type: "add", payload: {...task, category:this.selectedCategory}});
   }
   deleteTask(id: any){
     commands$.next({type: "delete", payload: id})
